@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 
 public class Enemy : MonoBehaviour
 {
@@ -56,5 +57,25 @@ public class Enemy : MonoBehaviour
         this.maxHealth = data.health;
         this.health = data.health;
     } // Init
+
+    void OnTriggerEnter2D(Collider2D collision) {
+        if (!collision.CompareTag("Bullet")) return; // if
+
+        this.health -= collision.GetComponent<Bullet>().damage;
+
+        if (health > 0) {
+            // .. Live, Hit Action
+        }
+        else {
+            // .. Die
+            this.Dead();
+        } // if else
+
+    } // OnTriggerEnter2D
+
+    void Dead() 
+    {
+        this.gameObject.SetActive(false);
+    } // Dead
 
 } // end class
