@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public Vector2 inputVec;
     public float speed;
+    public Scanner scanner;
 
     Rigidbody2D rigid;
     SpriteRenderer spriter;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
         this.rigid = GetComponent<Rigidbody2D>();
         this.spriter = GetComponent<SpriteRenderer>();
         this.anim = GetComponent<Animator>();
+        this.scanner = GetComponent<Scanner>();
     } // Awake
 
     // Input System ¿∏∑Œ ¥Î√ºµ 

@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour
         // GetComponentsInChildren 함수는 자기 자신을 0번째로 배열에 담는다. 우리는 자식 오브젝트인 Point 에서만 몹이 스폰되기를 원하므로
         // 0번째인 Spawner 객체는 제외해야하기 때문에 1부터 무작위값을 지정한다.
         enemy.transform.position = this.spawnPoint[Random.Range(1, this.spawnPoint.Length)].position;
-        enemy.GetComponent<Enemy>().Init(this.spawnData[level]);
+        enemy.GetComponent<Enemy>().Init(this.spawnData[this.level]);
     } // Spawn
 
 } // end class

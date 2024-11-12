@@ -12,6 +12,7 @@ public class Scanner : MonoBehaviour
     void FixedUpdate() 
     {
         this.targets = Physics2D.CircleCastAll(this.transform.position, this.scanRange, Vector2.zero, 0, this.targetLayer);
+        this.nearestTarget = this.GetNearest();
     } // FixedUpdate
 
     Transform GetNearest() 
@@ -27,7 +28,8 @@ public class Scanner : MonoBehaviour
             float curDiff = Vector3.Distance(myPos, targetPos);
 
             if (curDiff < diff) {
-
+                diff = curDiff;
+                result = target.transform;
             } // if
 
         } // foreach, inhanced for °ú À¯»ç
